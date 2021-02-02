@@ -1,0 +1,20 @@
+// {
+//   id: '@id()',  // 随机 id
+//   name: '@cname()', // 随机姓名
+//   date: '@date()',
+//   ip: '@ip()',
+//   email: '@email()',
+// }
+{
+  'list|100': [{
+    id: '@id()',  // 随机 id
+    name: '@cname()', // 随机姓名
+    date: '@date()',
+    ip: '@ip()',
+    email: '@email()',
+  }],
+  'newList|10': [{
+    id: '@id()',  // 随机 id
+    name: '@cname()', // 随机姓名
+  }]
+}
