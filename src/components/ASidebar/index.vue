@@ -19,8 +19,9 @@ export default {
   left: 0;
   background-color: #304156;
   color: #fff;
-  z-index:1;
-  padding: 80px 20px 20px ;
+  z-index: 1;
+  padding: 80px 20px 20px;
   box-sizing: border-box;
+
 }
 </style>

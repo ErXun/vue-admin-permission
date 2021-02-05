@@ -1,12 +1,14 @@
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
-import { login, logout, getInfo } from '@/api/user'
+import { login, logout, getUserInfo } from '@/api/user'
+
 
 const getDefaultState = () => {
   return {
     token: getToken(),
     name: '',
     avatar: '',
+    userId: null,
     routes: null
   }
 }
@@ -23,6 +25,9 @@ const mutations = {
   SET_NAME: (state, name) => {
     state.name = name
   },
+  SET_ID: (state, userId) => {
+    state.userId = userId
+  },
   SET_AVATAR: (state, avatar) => {
     state.avatar = avatar
   },
@@ -33,13 +38,12 @@ const mutations = {
 const actions = {
   // user login
   login({ commit }, userInfo) {
-    console.log(userInfo, 'userInfo');
     const { username, password } = userInfo
     return new Promise((resolve, reject) => {
       login({ username: username.trim(), password: password }).then(response => {
         const token = response.token
         commit('SET_TOKEN', token)
-        setToken(token)
+        setToken(token)  //存储到 Cookies 中
         resolve()
       }).catch(error => {
         reject(error)
@@ -48,16 +52,17 @@ const actions = {
   },
 
   // get user info
-  getInfo({ commit, state }) {
+  getUserInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
-      getInfo(state.token).then(response => {
+      getUserInfo(state.token).then(response => {
         const { data } = response
         if (!data) {
           return reject('Verification failed, please Login again.')
         }
-        const { name, avatar } = data
+        const { name, userId, routes } = data
         commit('SET_NAME', name)
-        commit('SET_AVATAR', avatar)
+        commit('SET_ID', userId)
+        commit('SET_ROUTES', routes)
         resolve(data)
       }).catch(error => {
         reject(error)
@@ -88,6 +93,8 @@ const actions = {
     })
   }
 }
+
+
 
 
 

@@ -16,5 +16,6 @@ export default {
   left: 0;
   // box-sizing: border-box;
   padding: 80px 20px 20px 220px;
+  background-color: #fafbfc;
 }
 </style>

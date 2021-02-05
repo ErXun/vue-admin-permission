@@ -1,10 +1,10 @@
 import Cookies from 'js-cookie'
 
-const TokenKey = 'x-token'
+const TokenKey = 'test-token'
 
-const UserNameKey = 'user-name'
+const UserNameKey = 'test-name'
 
-const UserIdKey = 'user-id'
+const UserIdKey = 'test-id'
 
 export function getToken() {
   return Cookies.get(TokenKey)

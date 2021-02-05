@@ -5,8 +5,8 @@ const users = [
     id: 1,
     username: 'liming',
     password: '123456',
-    token: 'abcdefghijklmnopqrstuvwxyz',
-    data: [{
+    token: 'abcde2',
+    routes: [{
       id: 1,
       authName: '一级菜单',
       icon: 'icon-menu',
@@ -27,8 +27,8 @@ const users = [
     id: 2,
     username: 'admin',
     password: '123456',
-    token: 'abcdefghijklmnopqrstuvwxyz'.split('').reverse().join(''),
-    data: [{
+    token: 'mnopqrs1',
+    routes: [{
       id: 1,
       authName: '一级菜单',
       icon: 'icon-menu',
@@ -59,6 +59,7 @@ const users = [
 
 // 用户登录
 Mock.mock('/login', 'post', options => {
+
   const { username, password } = JSON.parse(options.body)
   const user = users.find(item => {
     return item.username === username && item.password === password
@@ -76,8 +77,14 @@ Mock.mock('/logout', 'delete', () => {
 
 
 // 获取列表
-Mock.mock('/getInfo', 'get', () => {
+// 对于带参数的 get 请求，需要正则进行匹配
+Mock.mock(RegExp('/getUserInfo' + '.*'), 'get', () => {
   return {
-    token: 'admin-test'
+    data: {
+      name: 'admin',
+      userId: 2,
+      routes: users[0].routes
+    }
   }
 })
+

@@ -6,9 +6,9 @@ import ElementUI from 'element-ui';
 
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 import 'element-ui/lib/theme-chalk/index.css';
-import '@/assets/common.less'  // 全局公共css
-import '@/icons' // icon
-import '@/permission' // permission control
+import './assets/common.less'  // 全局公共css
+import './icons' // icon
+import './permission' // permission control
 import '../mock' // 引入 mock
 
 
