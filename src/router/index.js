@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import asyncRoutes from './asyncRoutes'
-import Home from '../views/Home.vue'
 
 Vue.use(Router)
 /**
@@ -29,7 +28,7 @@ export const constantRoutes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import("@/layout/Home.vue")
   },
   {
     path: '/login',

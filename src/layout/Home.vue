@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import AHeader from "@/components/AHeader"
-import ASidebar from "@/components/ASidebar"
-import AContent from "@/components/AContent"
+import AHeader from "@/layout/AHeader"
+import ASidebar from "@/layout/ASidebar"
+import AContent from "@/layout/AContent"
 
 export default {
   name: "Home",

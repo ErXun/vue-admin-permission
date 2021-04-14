@@ -1,6 +1,6 @@
 <template>
   <div class="a-header">
-    <h1>人生如戏</h1>
+    <!-- <h1>人生如戏</h1> -->
     <div class="user">
       <el-dropdown>
         <span class="el-dropdown-link">
